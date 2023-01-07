@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace _1475_A
 {
@@ -9,7 +10,7 @@ namespace _1475_A
             int n = int.Parse(Console.ReadLine());
             for (int i = 0; i < n; i++)
             {
-                ulong number = ulong.Parse(Console.ReadLine());
+                Int64 number = Int64.Parse(Console.ReadLine());
                 if (test(number))
                 {
                     Console.WriteLine("YES");
@@ -20,23 +21,25 @@ namespace _1475_A
                 }
             }
         }
-        public static bool test(ulong number)
+        public static bool test(Int64 number)
         {
-            ulong count = 0;
-            bool temp;
+            bool temp = false;
+            
             if(number%2!=0)
             {
                 temp = true;
             }
-
             else
             {
-                count = number / 2;
-                if (count % 2 != 0 && count > 1)
-                    temp = true;
-                else
-                    temp = false;
+                if((number & (number-1))!=0)
+                {
+                    temp=true;
+                }
             }
+            
+
+            /*if(flag) temp = true;
+            else temp = false;*/
 
             return temp;
         }

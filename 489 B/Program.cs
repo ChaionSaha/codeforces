@@ -26,6 +26,9 @@ namespace _489_B
                 girlsSkills.Add(int.Parse(item));
             }
 
+            boysSkills.Sort();
+            girlsSkills.Sort();
+
             if(boysSkills.Count <= girlsSkills.Count)
             {
                 foreach (var item in boysSkills)
@@ -52,7 +55,7 @@ namespace _489_B
             {
                 foreach (var item in girlsSkills)
                 {
-                    if (boysSkills.Contains(item) || boysSkills.Contains(item - 1) || boysSkills.Contains(item + 1))
+                    if (boysSkills.Contains(item) /*|| boysSkills.Contains(item - 1) || boysSkills.Contains(item + 1)*/)
                     {
                         pair++;
                         boysSkills.Remove(item);
